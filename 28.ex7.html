@@ -1,0 +1,71 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<style>
+    body{
+        margin: 0;
+        height: 300vh;
+    }
+    .wrap{
+        height: 50px;
+        background-color: #ccc;
+        position: fixed;
+        top: 0;
+        width: 100%;   /*下了position要加w，把他叫回來 */
+
+    }
+    .box{
+        background-color: pink;
+        height: 50px;
+        width: 100%;
+    }
+</style>
+
+
+<body>
+<div class="wrap">
+    <div class="box"></div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/f7e0275ee7.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script>
+
+    $(window).scroll(function() {
+        //常用的變數們
+        let scrollTop = $(window).scrollTop(),
+        bodyHeight = $('body').height(),
+        windowHeight = $(window).height();
+
+        //1. 使用者滾到哪？數字是？
+        console.log('scrolltop:', scrollTop);
+        //2. 網頁內容全長？ scrolltop 2292
+        console.log('body height:', bodyHeight);
+
+            //scrollTop 跟body height的不同
+            console.log('ScrollTop - body Height', scrollTop - bodyHeight);
+            console.log('windowHeight', windowHeight);
+
+        //3. 計算出目前閱讀進度百份比（分母＆分子各是誰？）
+        // console.log('percentage', `${$(window).scrollTop() / 2286 * 3000}px` );
+
+        //4. 回傳百分比給.box的css寬度
+        
+        $('.box').css('width', `${$(window).scrollTop() / 2286 * 3000}px`);
+    });
+
+
+    // resize時也要改變
+    // 超過20% 要變色
+    // 設定一張圖片，在變色時出現
+</script>
+
+
+</body>
+</html>

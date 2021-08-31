@@ -1,0 +1,101 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+
+<style>
+#testbox{
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+}
+
+.bigbox{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+
+.Sbtn{
+    font-size: 0.8rem;
+}
+
+.Mbtn{
+    font-size: 2.2rem;
+}
+
+.Lbtn{
+    font-size: 2.5rem;
+}
+</style>
+
+<body>
+
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="btn-group">
+                <button id="Sbtn" class="btn btn-info">小</button>
+                <button id="Mbtn" class="btn btn-info active">中</button>
+                <button id="Lbtn" class="btn btn-info">大</button>
+            </div>
+        </div>
+
+            <div class="row border my-3 px-3">
+                <h2>jquery</h2>
+                <p id='index'>But the country's rigid hiring system - and male-dominated leadership - remain a huge hurdle, blocking women from the best-paid jobs. The country risks becoming a nation of bored housewives with university degrees, warn critics.
+                </p>
+            </div>
+    </div>
+
+
+<div id="testbox" class="bigbox"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/f7e0275ee7.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script>
+//小按鈕效果
+$('#Sbtn').on('click', function(){
+    //小按鈕變暗，但手足的按鈕回復正常(active是bootstrap效果)
+    $('#Sbtn').addClass('active')
+    .siblings().removeClass('active');
+    //改變文字，方法一 (須三項套用才可以跑)
+    // $('#index').css('font-size', '0.8rem');
+    // $('h2').css('font-size', '1.2rem')
+    $('#index').removeClass().addClass('Sbtn');
+
+
+
+});
+
+//中按鈕效果
+$('#Mbtn').on('click', function(){
+    $('#Mbtn').addClass('active')
+    .siblings().removeClass('active');
+    //改變文字，方法二 (須將前面加的屬性移除)
+    $('#index').removeClass().addClass('Mbtn');
+
+});
+
+//大按鈕效果
+$('#Lbtn').on('click', function(){
+    $('#Lbtn').addClass('active')
+    .siblings().removeClass('active');
+    $('#index').removeClass().addClass('Lbtn');
+
+
+});
+
+//removeClass()，括號內什麼都不加，就會清空所有class
+$('#testbox').removeClass();
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex5</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<style>
+    *{
+        list-style: none;
+    }
+    .wrap{
+        max-width: 800px;
+        height: 400px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .train{
+        display: flex;
+        width: 4000px;
+        padding: 0;
+        margin: 0;
+        transition: 0.8s;
+    }
+
+    .car img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .slider-dots{
+        display: flex;
+        position: absolute;
+        padding: 0;
+        bottom: 0;
+
+        /* absolute的置中方式 */
+        left: 50%;
+        transform: translateX(-50%);
+
+    }
+
+    .slider-dots li {
+        width: 40px;
+        height: 10px;
+        margin: 0 4px;
+        color: white;
+        border: 3px solid white;
+    }
+
+</style>
+
+<body>
+    <div class="wrap">
+        <ul class="train">
+            <li></li>
+            <li class="car"><img src="https://picsum.photos/id/3/800/400" alt=""></li>
+            <li class="car"><img src="https://picsum.photos/id/10/800/400" alt=""></li>
+            <li class="car"><img src="https://picsum.photos/id/11/800/400" alt=""></li>
+            <li class="car"><img src="https://picsum.photos/id/1/800/400" alt=""></li>
+            <li class="car"><img src="https://picsum.photos/id/1039/800/400" alt=""></li>
+
+        </ul>
+
+        <ul class="slider-dots">
+            <!-- <i class="fas fa-arrow-left"></i> -->
+            <li class="dot"></li>
+            <li class="dot"></li>
+            <li class="dot"></li>
+            <li class="dot"></li>
+            <li class="dot"></li>
+            <!-- <i class="fas fa-arrow-right"></i> -->
+
+        </ul>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/f7e0275ee7.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+
+<script>
+let i = 0; 
+$('.dot').hover(function(){
+//我知道目前hover的是第幾個li
+    console.log('index:', $(this).index());
+    i = $(this).index();
+
+//所以我也可以知道我的火車要移動多少距離
+//0 ->0, 1-> -800, 2->-1600, 3->-2400, 4->3200
+// index()列表裡面有N多的列表專案，確定觸發是點選了哪一個
+console.log('move x:', $(this).index() * -800);
+
+//選取我的火車dom並修改他的css     
+$('.train').css('transform', `translateX(${$(this).index() * -800}px)`);
+$('.slider-dots li').css('background-color', 'white').siblings().css('background-color', 'transparent');
+
+
+
+
+    // //但他就不能隨著選取的li調整，只能往上加;每次動作完，i又會回到0，所以i=0要丟出去，變成全域變數
+    // i++;
+    // $('.train').css('transform', `translateX(${i * -800}px)`);
+
+});
+
+// setInterval(() => {
+//     i++;
+//     if(i > 4){
+//         i = 0;
+//     }
+
+//     console.log('hi', i);
+//     $('.train').css('transform', `translateX(${i * -800}px)`);
+    
+//     }, 3000); //毫秒；最低1秒起，但如果前面被拖住0.2秒，就會變成1.2秒才跳
+
+//     $('.slider-dots li').eq(i).css('background-color', 'white').siblings().css('background-color', 'transparent');
+
+</script>
+
+</body>
+</html>
+
+
+<!-- to do:
+(1) 前後加上箭頭，快速跳轉到第一/最末頁
+(2)  -->

@@ -1,0 +1,51 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <ul class="level1">
+                <li class="item-1">item-1</li>
+                <li class="item-2">item-2
+                    <ul class="level2">
+                        <li class="item-01">item-01</li>
+                        <li class="item-02">item-02
+                            <ul class="level3">
+                                <li class="item-001">item-001</li>
+                                <li class="item-002">item-002</li>
+                                <li class="item-003">item-003</li>
+                            </ul>
+                        </li>
+                        <li class="item-03">item-03</li>
+                    </ul>
+                </li>
+                <li class="item-3">item-3</li>
+            </ul>
+        </div>
+    </div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/f7e0275ee7.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script>
+$('.level3').children('.item-001').css('color', 'red');
+
+//children只能找下「一」代，不會再往下找
+$('.level1').children('.item-002').css('background-color', 'red');
+//透過find，可以找到以下所有的後代
+$('.level1').find('.item-003').css('background-color', 'yellow');
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -2,18 +2,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>01-透過js改色</title>
+    <title>on 1</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
-
-
-
 <body>
-<ul style="color:darkblue; background-color: #f2f2f2;" >任務: (1)透過js改變文字顏色 &nbsp;  (2) 給兩個a標籤不同顏色 </ul>
+<div class="container">
+    <div class="row my-3">
+        <div id="add" class="btn btn-primary">Add</div>
+    </div>
 
-<h1>Hello World!</h1>
-<a href="https://www.google.com/">Google</a>
-<a href="https://tw.yahoo.com/">Yahoo</a>
+    <div class="row">
+        <p>清單</p>
+        <ul>
+            <li>item 1</li>
+            <li>item 2</li>
+        </ul>
+    </div>
+</div>
+
 
 
 
@@ -21,15 +27,31 @@
 <script src="https://kit.fontawesome.com/f7e0275ee7.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
 <script>
-    $('ul').css('text-align', 'center');
-    $('h1').css("background-color", "lightpink").css('color', 'blue');
-    $('a').css('color', 'grey');
-    $('a[href="https://tw.yahoo.com/"]').css('color', 'red');
+    n=2;
+    $('#add').click(function(){
+        n++;
+        $('ul').append(`<li> item ${n} </li>`); //append加在元素後面, prepend加在前面
 
-    
+        //重複綁定問題: 假如跑到item4後，按下item1 就會出現兩個hi
+        // $('li').click(function(){
+        //     console.log('hi li');
+        // })
+    });
+
+    //因為沒有重新綁定，抓不到新增的item 3
+    // $('li').click(function(){
+    //         console.log('hi li');
+    //     })
+
+    //須綁定直系，建議爸爸(ul); 如果找不到，可以找祖宗document
+    $('ul').on('click', 'li', function(){
+        console.log('hi li', $(this).text());
+
+    })
+
 </script>
-
 
 </body>
 </html>

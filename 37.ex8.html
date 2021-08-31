@@ -1,0 +1,103 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<style>
+    .wrap{
+        width: 800px;
+        height: 400px;
+        background-color: #ccc;
+        position: relative;
+    }
+
+    .box{
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+        position: absolute;
+
+    }
+
+</style>
+<body>
+
+<div class="wrap mx-auto mt-3">
+    <div class="box">
+    </div>
+</div>
+
+<!-- 上方按鈕 -->
+    <div class="text-center py-3">
+        <div> 
+            <button id="up" class="btn btn-info">
+                <i class="fas fa-caret-up"></i>
+            </button> 
+        </div>
+
+
+<!-- 左右 -->
+    <div class="px-3">  
+        <button id="left" class="btn btn-info">
+            <i class="fas fa-caret-left"></i>
+        </button> 
+    </div>
+
+    <div class="px-3"> 
+        <button id="right" class="btn btn-info">
+           <i class="fas fa-caret-right"></i>
+        </button> 
+    </div>
+
+<!-- 下方按鈕 -->
+        <div> 
+            <button id="down" class="btn btn-info">
+                <i class="fas fa-caret-down"></i>
+            </button> 
+        </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/f7e0275ee7.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script>
+    $('#right').on('click', function () {
+        if( parseInt($('.box').css('left')) >= 700 ) return;{
+            $('.box').css('left', '+=100');
+        }
+    });
+
+    $('#down').on('click', function () {
+        if( parseInt($('.box').css('top')) >= 300 ) return;{
+            $('.box').css('top', '+=100');
+        }
+    });
+
+    $('#up').on('click', function () {
+        if( parseInt($('.box').css('top')) <= 0 ) return;{
+            $('.box').css('bottom', '+=100');
+        }
+    });
+
+    $('#left').on('click', function () {
+        if( parseInt($('.box').css('left')) <= 0 ) return;{
+            $('.box').css('right', '+=100');
+        }
+    });
+
+    $(document).on('keydown', function(){
+
+    })
+
+</script>
+
+
+
+
+</body>
+</html>

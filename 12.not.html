@@ -2,32 +2,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>01-透過js改色</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Document</title>
 </head>
-
-
-
 <body>
-<ul style="color:darkblue; background-color: #f2f2f2;" >任務: (1)透過js改變文字顏色 &nbsp;  (2) 給兩個a標籤不同顏色 </ul>
 
-<h1>Hello World!</h1>
-<a href="https://www.google.com/">Google</a>
-<a href="https://tw.yahoo.com/">Yahoo</a>
-
-
+    <div class="a1">a1</div>
+    <div class="a2">a2</div>
+    <div class="a3">a3</div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/f7e0275ee7.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-<script>
-    $('ul').css('text-align', 'center');
-    $('h1').css("background-color", "lightpink").css('color', 'blue');
-    $('a').css('color', 'grey');
-    $('a[href="https://tw.yahoo.com/"]').css('color', 'red');
 
-    
+<script>
+    $('div').not('.a1').css('color', 'red');
+    $('div:not(".a2")').css('background-color', '#f2f2f2');
 </script>
 
 
