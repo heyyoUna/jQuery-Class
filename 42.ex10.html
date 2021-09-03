@@ -37,8 +37,8 @@
 
         <div class="col-6">
             <div class="colorPicker">
-                <div class="colorA"></div>
-                <div class="colorB"></div>
+                <div class="colorA btnA"></div>
+                <div class="colorB btnB"></div>
             </div>
         </div>
 
@@ -50,18 +50,21 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 <script>
-    $('.colorA').on('click', function() {
+    $('.colorA').on('mouseenter', function() {
         //取出colorA box的bgc 
         const Abgc = $('.colorA').css('background-color');
         //套入剛取出的bgc
         $('.colorBox').css('background-color',Abgc);
     });
 
-    $('.colorB').on('click', function() {
+    $('.colorB').on('mouseenter', function() {
         //此處的this 是.colorB
         const Bbgc = $(this).css('background-color');
         $('.colorBox').css('background-color',Bbgc);
     })
+
+
+
 </script>
 
 

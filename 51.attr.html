@@ -3,17 +3,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
+<style>
+    .imgWrap{
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+}
+
+    .imgWrap img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
 <body>
+    <div class="imgWrap"><img src="https://tinyurl.com/dzwdup9t" alt=""></div>
+    <button class="mx-3 btn btn-primary" id="biu" >biu</button>
 
-    <div class="a1_wrap">
-      <div class="a1">AAA</div>
-      </div>
-
-      <div>
-        <div class="a2">BBB</div>
-      </div>
-      
 
 
 
@@ -23,9 +31,11 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 <script>
-  //顏色是在a1_wrap的div，AAA顏色是遺產
-$('div').has('.a1').css('color', 'red');
-$('div:contains("B")').css('background-color', '#f2f2f2');
+$(':button').on('click', function(){
+    //attr('要改變的屬性', '如何改變')
+    $('.imgWrap img').attr('src', 'https://tinyurl.com/77rt7z36');
+
+});
 </script>
 
 </body>

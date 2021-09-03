@@ -1,0 +1,57 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+</head>
+<style>
+    body {
+        margin: 15px;
+    }
+</style>
+<body>
+    <h1 class="animate__animated">An animated element</h1>
+    <!-- 方法一： 
+        <button>bounce</button> -->
+
+    <!-- 方法二 -->
+    <button data-animate-name="animate__bounce">bounce</button>
+    <button data-animate-name="animate__shakeY">shakeY</button>
+    <button data-animate-name="animate__heartBeat">heartBeat</button>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/f7e0275ee7.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script>
+    $('button').click(function() {
+//方法一
+        //button只能按一次
+        // $('h1').addClass('animate__bounce');
+
+        //animationend = 動畫結束 animation end 
+        //按下button -> 加上bounce的class ->每一次動畫結束 -> 移除bounceclass 
+        // $('h1').addClass('animate__bounce').one('animationend', function() {
+        //     $('h1').removeClass('animate__bounce');
+        // })
+
+//方法二
+        console.log('my data:', $(this).data('animate-name'));
+        const animationName = $(this).data('animate-name');
+        $('h1').addClass(animationName)
+        .one('animationend', function() {
+            $('h1').removeClass(animationName);
+        })
+
+
+
+    })
+</script>
+</body>
+</html>

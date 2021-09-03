@@ -4,10 +4,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    body{
+        display: inline-block;
+    }
+</style>
 <body>
 
     <div class="a1">a1</div>
     <div class="a2">a2</div>
+    <div class="a2">66666</div>
     <div class="a3">a3</div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
@@ -16,8 +22,11 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 <script>
+    //沒有指定的 class
     $('div').not('.a1').css('color', 'red');
     $('div:not(".a2")').css('background-color', '#f2f2f2');
+    //沒有指定的內部元素 not(:contain("text"))
+    $('div:not(:contains("6"))').css('border', '1px solid green');
 </script>
 
 

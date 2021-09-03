@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <body>
-<p>練習：eq(排名), even/odd, first/last, gt/lt, :header</p>
+
+<p style="background-color: #f2f2f2; color: grey; text-align: center;">練習：eq(排名), even/odd, first/last, gt/lt, :header</p>
 <br>
     <div class="container">
         <div class="row">
@@ -64,10 +65,10 @@
 
 <script>
     $('td').css('text-align', 'center');
-    $('td:even').css('color', 'lightblue');
+    $('td:even').css('color', 'lightblue'); //even 基數
     $('td:last').css('background-color', '#f2f2f2');
-    $('td:lt(5)').css('background-color', 'lightyellow');
-    $(':header').css('color', 'orange');
+    $('td:lt(5)').css('background-color', 'lightyellow'); // less than 5
+    $(':header').css('color', 'orange'); // 所有h1-6，使用h標籤的孩子，
 </script>
 
 </body>

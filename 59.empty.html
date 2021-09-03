@@ -2,31 +2,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>remove</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
+<style>
+    button #removeBtn {
+        /* opacity: 0; */
+    }
+
+/* 不同消失的方法：
+opacity只是看不到，但還在
+remove()，真的消失
+display: none 真的消失
+ */
+</style>
 <body>
 
-    <div class="a1_wrap">
-      <div class="a1">AAA</div>
-      </div>
 
-      <div>
-        <div class="a2">BBB</div>
-      </div>
-      
+<div class="container">
+    <button id="removeBtn" class="my-3">remove</button>
 
-
-
+        <h1 class="hello helloWord">hello World</h1>
+        <h1 class="hello helloWord1">hello World1</h1>
+        <h1 class="hello helloWord2">hello World2</h1> 
+</div>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/f7e0275ee7.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
 <script>
-  //顏色是在a1_wrap的div，AAA顏色是遺產
-$('div').has('.a1').css('color', 'red');
-$('div:contains("B")').css('background-color', '#f2f2f2');
+    $('#removeBtn').click(function(){
+        $('.helloWord1').em();
+    });
+
+    
 </script>
+
 
 </body>
 </html>

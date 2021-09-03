@@ -1,0 +1,65 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html / text</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<style>
+    span{
+        color: palevioletred;
+    }
+    body {
+        margin: 5px;
+    }
+</style>
+<body>
+    <button class="btn btn-primary" id="getText">get text</button>
+    <button class="btn btn-primary" id="getHTML">get HTML</button>
+    <button class="btn btn-primary" id="getHTMLli">get HTML Li</button>
+    
+    <h1 id="sample">Hello <span>World</span> </h1>
+    <h1 id="result"></h1>
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/f7e0275ee7.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script>
+    //text 僅帶h1屬性
+    $('#getText').click(function() {
+        // console.log('getText');
+        $('#sample').text();
+        // console.log('getText:', $('#sample').text() );
+        const sampleText = $('#sample').text();
+        $('#result').text(sampleText);
+    });
+
+    //不僅h1，還會帶上span
+    $('#getHTML').click(function(){
+        const sampleHTML = $('#sample').html();
+        console.log('get HTML', sampleHTML);
+        $('#result').html(sampleHTML);
+        
+    })
+
+    $('#getHTMLli').click(function(){
+        let htmlString = '';
+        for (let i = 0; i < 10; i++){
+            //如果沒有i+1，編號將會從0開始
+            htmlString += `<li> item${i+1} </li>`;
+        }
+        $('#result').html(htmlString);
+        // 如果最後用text()寫，就會把標籤也用文字方式印出來
+        // $('#result').text(htmlString);
+    })
+</script>
+
+
+</body>
+</html>

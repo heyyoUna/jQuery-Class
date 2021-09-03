@@ -2,61 +2,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>prepend</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <style>
-    *{
-        margin-left: 5px;
+    .box{
+        width: 100px;
+        height: 100px;
+        background-color: #afa;
     }
 </style>
 <body>
+<div class="container">
+    <input type="text">
+    <button class="btn btn-dark" id="addInput">add</button>
 
-    <ul style="background-color: #f2f2f2; color: grey; text-align: center;">
-        不符合者，被特別標示
-         </ul>
+        <ul>
+            <li>item 1</li>
+            <li>item 2</li>
+        </ul>
 
-
-    <div>
-        <input type="checkbox" checked>
-        <span>AZ疫苗</span>
-    </div>
-    <div>
-        <input type="checkbox" checked>
-        <span>莫德納疫苗</span>
-    </div>
-    <div>
-        <input type="checkbox" checked>
-        <span>高端疫苗</span>
-    </div>
-    <div>
-        <input type="checkbox">
-        <span>我不打疫苗</span>
-    </div>
-
-<br>
-
-<br>
-<ul style="background-color: #f2f2f2; color: grey; text-align: center;">
-    加號範例
-     </ul>
-
-<p>我是標籤Ｐ</p>
-<span>一號span選手</span>
-<span>第二名最傷悲</span>
-
+</div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/f7e0275ee7.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
 <script>
-    $(':checkbox:not(:checked) + span').css('background-color', 'yellow');
 
-    // + -> 後面一位
-    $('p + span').css('background-color', 'lightgreen');
+
+//按下點擊，輸入的值會跑到代辦事項的第一位
+$('button').click(function(){
+    const msg = $('input').val();
+    $('ul').prepend(`<li> ${msg} </li>`);
+
+    $('li').click(function(){
+    $(this).css('text-decoration', 'line-through');
+})
+})
+
+
+//放在外面，新增的li會抓不到(不會自動抓更新)；所以要放在button的框框內
+// $('li').click(function(){
+//     $(this).css('text-decoration', 'line-through');
+// })
+
+
 </script>
+
 
 </body>
 </html>

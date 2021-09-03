@@ -1,0 +1,74 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<style>
+    body {
+        margin: 0;
+        height: 500vh;
+
+    }
+
+    nav{
+        height: 30px;
+        width: 100%;
+        background-color: #afa;
+        text-align: center;
+        color: grey;
+    }
+
+   .fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    }
+
+    .banner{
+        /* 剛好滿版畫面，60px 為我們給nav的高 */
+        height: calc(100vh - 60px);
+        background-image: url(https://picsum.photos/id/3/800/400);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+<body>
+
+<div class="banner"></div>
+<nav>Hello Nav</nav>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/f7e0275ee7.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script>
+console.log('scrollTop', $(window).scrollTop());
+console.log('box offset top', $('nav').offset().top);
+
+const navTop = $('nav').offset().top;
+$(window).scroll(function() {
+    if($(window).scrollTop() > (navTop - 60) ){
+    $('nav').addClass('fixed');
+}
+// 再往回拉，還是在下面
+else {$('nav').removeClass('fixed');}
+//印出來看，因為fixed後window scrolltop 會一直等於 nav offset top
+console.log('scrollTop', $(window).scrollTop());
+console.log('box offset top', $('nav').offset().top);
+//所以把nav offset top丟出去設變數；內部改變，他也不會被帶跑 -> try 註解line 52
+//『外丟沒煩惱』 不想被改變？滾出去！ 
+
+
+});
+
+
+
+</script>
+
+
+</body>
+</html>

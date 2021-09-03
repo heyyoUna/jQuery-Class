@@ -6,57 +6,45 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <style>
-    *{
-        margin-left: 5px;
+    .wrap{
+        /* position: relative; */
+        width: 800px;
+        height: 400px;
+        background-color: #ccc;  
+        margin: 50px;      
+    }
+    .box {
+        width: 200px;
+        height: 200px;
+        background-color: #afa;
+
     }
 </style>
 <body>
-
-    <ul style="background-color: #f2f2f2; color: grey; text-align: center;">
-        不符合者，被特別標示
-         </ul>
-
-
-    <div>
-        <input type="checkbox" checked>
-        <span>AZ疫苗</span>
-    </div>
-    <div>
-        <input type="checkbox" checked>
-        <span>莫德納疫苗</span>
-    </div>
-    <div>
-        <input type="checkbox" checked>
-        <span>高端疫苗</span>
-    </div>
-    <div>
-        <input type="checkbox">
-        <span>我不打疫苗</span>
-    </div>
-
-<br>
-
-<br>
-<ul style="background-color: #f2f2f2; color: grey; text-align: center;">
-    加號範例
-     </ul>
-
-<p>我是標籤Ｐ</p>
-<span>一號span選手</span>
-<span>第二名最傷悲</span>
-
-
+<div class="wrap">
+    <div class="box"></div>
+</div>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/f7e0275ee7.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 <script>
-    $(':checkbox:not(:checked) + span').css('background-color', 'yellow');
+// 前人都沒有position，位址基準往上抓到body
+console.log('position', $('.box').position() )
 
-    // + -> 後面一位
-    $('p + span').css('background-color', 'lightgreen');
+//wrap加上padding後，
+$('.wrap').css('padding', '5px');
+console.log('position with padding', $('.box').position() )
+
+//wrap的位置是relative，所以.box位置的參數是相對wrap來看
+$('.wrap').css('position', 'relative');
+console.log('position with relative wrap', $('.box').position() )
+
+
+    
 </script>
+
 
 </body>
 </html>

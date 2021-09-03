@@ -8,13 +8,13 @@
 <body>
     <div class="container">
         <div class="row">
-            <ul class="level1">
+            <ul class="level1 closestTest">level1
                 <li class="item-1">item-1</li>
                 <li class="item-2">item-2
-                    <ul class="level2">
+                    <ul class="level2 closestTest">level2
                         <li class="item-01">item-01</li>
                         <li class="item-02">item-02
-                            <ul class="level3">
+                            <ul class="level3">level3
                                 <li class="item-001">item-001</li>
                                 <li class="item-002">item-002</li>
                                 <li class="item-003">item-003</li>
@@ -35,19 +35,18 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 <script>
+//parent 找爸爸；parents 挖祖墳，每個直系血親都不放過
 $('.item-001').parent().css('border', 'red 1px solid');
 //往上選取全部
 // $('.item-001').parents().css('border', 'lightpink 1px solid');
 
 
-
-//找爸爸(限一代)
-$('.level3').closest('.item-02').css('background-color', '#f2f2f2');
+//closest 帶一個離自己最近，符合條件的直系血親回家；找到一個就回家，找不到就會再往上找
+$('.level3').closest('.item-2').css('background-color', '#f2f2f2');
+$('.level3').closest('.closestTest').css('border', '1px solid green');
 //旁系血親找不到
 $('.level3').closest('.item-01').css('border', '1px solid yellow');
 
-//closest 可以找到「所有」直系血親
-$('.level3').closest('.level1').css('border', '5px solid yellow');
 
 
 
@@ -55,7 +54,7 @@ $('.level3').closest('.level1').css('border', '5px solid yellow');
 $('.item-001').parentsUntil('.item-2').css('color', 'purple');
 
 //從item-002 找到item-01
-$('.item-002').closest('.item-2').find('.item-01').css('font-size', '20px');
+$('.item-002').closest('.item-2').find('.item-01').css('border-bottom', '5px double skyblue');
 
 
 </script>

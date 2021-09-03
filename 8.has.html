@@ -4,11 +4,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    body {
+        display: inline-block;
+    }
+</style>
 <body>
     <div>abc</div>
-    <div id="level1">
-        <p>def</p>
-    </div>
+    <div id="level1"> <p>defp</p> </div>
+    <div>p</div>
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
@@ -19,6 +23,8 @@
     //找出有p這個孩子的家長
     //has -> 找內部標籤； contains -> 內部元素
     $('div:has("p")').css('background-color', 'yellow');
+    $('div:contains("p")').css('border', '1px solid red');
+    
 
 
 </script>

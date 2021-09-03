@@ -55,11 +55,13 @@
 <body>
     <div class="wrap">
         <ul class="train">
-            <li class="car"><img src="https://picsum.photos/id/1/800/400" alt=""></li>
+            <li></li>
+            <li class="car"><img src="https://picsum.photos/id/3/800/400" alt=""></li>
+            <li class="car"><img src="https://picsum.photos/id/10/800/400" alt=""></li>
             <li class="car"><img src="https://picsum.photos/id/11/800/400" alt=""></li>
-            <li class="car"><img src="https://picsum.photos/id/21/800/400" alt=""></li>
-            <li class="car"><img src="https://picsum.photos/id/31/800/400" alt=""></li>
-            <li class="car"><img src="https://picsum.photos/id/41/800/400" alt=""></li>
+            <li class="car"><img src="https://picsum.photos/id/1/800/400" alt=""></li>
+            <li class="car"><img src="https://picsum.photos/id/1039/800/400" alt=""></li>
+   
         </ul>
 
         <ul class="slider-dots">
@@ -82,19 +84,21 @@
 
 <script>
 let i = 0; 
-$('li.dot').mouseenter(function(){
-//透過index可以知道他是第幾個li
-    // console.log('index:', $(this).index());
+$('.dot').hover(function(){
+//我知道目前hover的是第幾個li
+    console.log('index:', $(this).index());
     i = $(this).index();
 
-//火車要移動的距離? wrap的寬是800px
+//所以我也可以知道我的火車要移動多少距離
 //0 ->0, 1-> -800, 2->-1600, 3->-2400, 4->3200
 // index()列表裡面有N多的列表專案，確定觸發是點選了哪一個
 console.log('move x:', $(this).index() * -800);
 
 //選取我的火車dom並修改他的css     
 $('.train').css('transform', `translateX(${$(this).index() * -800}px)`);
-$(this).css('background', 'white').siblings().css('background', 'transparent');
+$('.slider-dots li').css('background-color', 'white').siblings().css('background-color', 'transparent');
+
+
 
 
     // //但他就不能隨著選取的li調整，只能往上加;每次動作完，i又會回到0，所以i=0要丟出去，變成全域變數
